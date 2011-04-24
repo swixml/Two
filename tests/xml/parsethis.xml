@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog size="640,480" title="ParserTest" DefaultCloseOperation="JDialog.DISPOSE_ON_CLOSE">
+  <panel>
+     <checkbox mnemonic=""/>
+  </panel>
+</dialog>

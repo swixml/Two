@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<frame size="640,480" title="XInclude Sample">
+  <panel constraints="BorderLayout.CENTER">
+    <label id="lbl" Font="Comic Sans MS-BOLD-14" Foreground="blue">
+      Swixml now understands some XPointer / XInclude syntax
+    </label>
+  </panel>
+  <panel id="pnl_footer" constraints="BorderLayout.SOUTH" include="xml/fragments.xml#PNL_OK_CANCEL"/>
+</frame>

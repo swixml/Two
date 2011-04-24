@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><p>
+  <a href="http://www.swixml.org"><strong>SwiX<sup>ml</sup></strong></a>, is a small GUI generating engine for Java
+  applications and applets.
+  Graphical User Interfaces are described in XML documents that are parsed at runtime and rendered into
+  javax.swing objects.
+</p>
+<p>
+  Depending on the application, XML descriptors may be deployed with the remaining code or loaded from a
+  remote server at runtime. This late binding of the GUI has many advantages. Enabling features in an
+  application based on a license code or a user's role does not have to be hard coded anymore. Instead
+  an XML document describing the application's GUI could be dynamically loaded.<br>
+  Generating the GUI based on descriptors also has some of the advantages that code generators provide,
+  but without generating the none-maintainable code.
+</p>
+<img src="http://www.swixml.org/img/swixml.gif" alt="" width="279" height="83" border="0">
+<p>
+  While <strong>SwiX<sup>ml</sup></strong> doesn't free the developer from knowing the
+  <em>javax.swing</em> package, it reduces the amount of repetitive, sometimes error prone, and often
+  complex GUI related code.
+</p>
+<p>
+  Constructing a User Interface based on XML documents is not a totally new idea. Projects like <a href=
+        "http://www.thinlet.com" target="_blank">Thinlet</a>, XUL, XULUX, Jelly, and SwingML, to name a few,
+  have successfully proven this concept.
+</p>
+<ul>
+  <li>
+    SwiX<sup>ml</sup> differentiates itself from the rest by focusing completely on javax.swing.
+  </li>
+  <li>
+    Programmers who know Swing already can immediately start writing descriptors. No additional XML
+    dialect has to be learned: Class names translate into tag names and method names into attribute
+    names.
+  </li>
+  <li>
+    SwiX<sup>ml</sup> is faster since no additional layers had to be added on top of the Swing objects.
+  </li>
+  <li>
+    SwiX<sup>ml</sup> is smaller. Despite the fact that the swixml jar file is only about 40 Kbyte in
+    size, almost all of the infamous Swing objects are supported.
+  </li>
+  <li>
+    SwiX<sup>ml</sup> does Java Swing GUI generation and that is all. The dynamic behavior of the user
+    interface, defining the application's business rules, has to be coded in Java.
+  </li>
+</ul>
+<br>
+<hr><br>

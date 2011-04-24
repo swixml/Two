@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame size="640,480" title="Hello SWIXML World">
+  <panel constraints="BorderLayout.CENTER">
+    <redlabel TimeZone="CST" />
+  </panel>
+  <panel constraints="BorderLayout.SOUTH">
+    <xpanel xml="XPanel.xml"/>
+  </panel>
+</frame>

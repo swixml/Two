@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame name="mainframe" size="600,400" title="app_Title" IconImage="img_App" bundle="locale.swix" locale="de" plaf="com.sun.java.swing.plaf.windows.WindowsLookAndFeel">
+    <menubar name="menubar">
+        <menu name="filemenu" text="mus_File">
+            <menuitem name="mi_new" text="mis_New" icon="img_New" mnemonic="mn_New" ActionCommand="new" Accelerator="acc_New" />
+            <menuitem name="mi_open" text="mis_Open" icon="img_Open" mnemonic="mn_Open" ActionCommand="open"/>
+            <menuitem name="mi_save" text="mis_Save" icon="img_Save" mnemonic="mn_Save" ActionCommand="save"/>
+            <separator/>
+            <menuitem name="mi_options" text="mis_Options"  Action="actionOptions"  macos_preferences="true" />
+            <separator/>
+            <menuitem name="mi_exit" text="mis_Exit" icon="img_Exit" mnemonic="mn_Exit" Action="actionExit" Accelerator="acc_Exit"  macos_quit="true"/>
+        </menu>
+        <menu text="mus_Help">
+            <menuitem name="mi_help" text="mis_Help" icon="img_Help" Action="actionHelp"  Accelerator="acc_Help" />
+            <separator/>
+            <menuitem name="mi_about" text="mis_About" icon="img_About" Action="actionAbout" Accelerator="acc_About"  macos_about="true" />
+        </menu>
+    </menubar>
+
+    <panel layout="borderlayout" constraints="BorderLayout.NORTH">
+        <toolbar floatable="true" borderPainted="true" orientation="HORIZONTAL">
+            <button name="btn_panel" ToolTipText="tt_Panel" icon="img_Panel" ActionCommand="widget_panel"/>
+            <button name="btn_button" ToolTipText="tt_Button" icon="img_Button" ActionCommand="widget_button"/>
+            <separator/>
+            <button name="btn_label" ToolTipText="tt_Label" icon="img_Label" ActionCommand="widget_label" />
+        </toolbar>
+    </panel>
+
+    <panel layout="borderlayout" background="666666" constraints="BorderLayout.CENTER">
+        <splitpane oneTouchExpandable="true" dividerLocation="200">
+            <splitpane oneTouchExpandable="true" dividerLocation="140" orientation="HORIZONTAL">
+                <scrollPane>
+                    <tree name="tree"/>
+                </scrollPane>
+                <panel layout="borderlayout">
+                    <panel constraints="BorderLayout.NORTH">
+                        <button name="btn_copy" ToolTipText="tt_Copy" BorderPainted="false" FocusPainted="false" icon="img_Copy" size="24,24"/>
+                        <button name="btn_paste" ToolTipText="tt_Paste" BorderPainted="false" FocusPainted="false" icon="img_Paste" size="24,24"/>
+                        <button name="btn_cut" ToolTipText="tt_Cut" icon="img_Cut" BorderPainted="false" FocusPainted="false" size="24,24"/>
+                    </panel>
+                    <scrollPane constraints="BorderLayout.CENTER">
+                        <table name="table"/>
+                    </scrollPane>
+                </panel>
+            </splitpane>
+            <panel name="preview" border="LoweredBevelBorder">
+                <textarea name="ta"/>
+            </panel>
+        </splitpane>
+    </panel>
+
+    <panel constraints="BorderLayout.SOUTH">
+        <label text="Status:"/>
+        <textfield text="OK"/>
+    </panel>
+</frame>

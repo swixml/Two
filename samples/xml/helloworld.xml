@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame size="640,280" title="Hello SWIXML World" defaultCloseOperation="JFrame.EXIT_ON_CLOSE">
+
+  <panel constraints="BorderLayout.CENTER">
+    <label labelfor="tf" font="Georgia-BOLD-12" foreground="blue" text="Hello World!"/>
+    <textfield id="tf" columns="20" Text="Swixml"/>
+    <button text="Click Here" action="submit"/>
+  </panel>
+
+  <panel constraints="BorderLayout.SOUTH">
+    <label font="Georgia-BOLD-36" text="Clicks:"/>
+    <label font="Georgia-BOLD-36" id="cnt"/>
+  </panel>
+
+</frame>

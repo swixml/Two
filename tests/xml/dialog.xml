@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog size="640,480" title="SWIXML Test Descriptor" DefaultCloseOperation="JFrame.EXIT_ON_CLOSE">
+  <panel layout="BorderLayout">
+  <menubar id="menubar" name="menubar" constraints="BorderLayout.NORTH">
+    <menu name="filemenu" text="File">
+      <menuitem name="mi_new" text="New" icon="icons/new.gif" mnemonic="VK_N" accelerator="control N" Action="newAction"/>
+      <menuitem name="mi_open" text="Open" icon="icons/open.gif" mnemonic="VK_O" Accelerator="control O" ActionCommand="open"/>
+      <menuitem name="mi_save" text="Save" icon="icons/save.gif" mnemonic="VK_S" ActionCommand="save"/>
+      <separator/>
+      <menuitem name="mi_exit" text="Exit" icon="icons/exit.gif" mnemonic="VK_X" Accelerator="control X" ActionCommand="exit"/>
+    </menu>
+    <menu text="Help">
+      <menuitem name="mi_about" text="About" enabled="true" icon="icons/info.gif" Accelerator="alt A" Action="aboutAction" />
+    </menu>
+  </menubar>
+  <panel>
+    <buttongroup id="radio">
+        <radiobutton id="am" text="AM"/>
+        <radiobutton id="fm" text="FM"/>
+    </buttongroup>
+</panel>
+  </panel>
+</dialog>

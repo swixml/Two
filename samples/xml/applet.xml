@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applet size="640,480">
+  <panel constraints="BorderLayout.CENTER">
+    <label DisplayedMnemonic="VK_E" LabelFor="tf" Font="Comic Sans MS-BOLD-12"	Foreground="blue">
+      Hello World!
+    </label>
+    <textfield id="tf" Columns="20" Text="Swixml"/>
+    <button id="btn" Text="Click Here" Action="submit"/>
+  </panel>
+</applet>
