@@ -1,0 +1,304 @@
+/* Carlsbad Cubes (c) 2002-2003 */
+/****************BGCOLORS********************/
+
+/***************Elements **********************/
+
+code,.sourcecode,.htmlcode{
+	color : #336666;
+	font : 10px "Lucida Console",Courier, sans-serif;
+}
+
+body  {
+	margin:  0;
+	padding:  0;
+	color:  #333333;
+	background-color: white;
+	font: 11px verdana, arial, helvetica, sans-serif;
+	line-height: 19px;
+	}
+td {
+	font: 11px verdana, arial, helvetica, sans-serif;
+	}
+h2 {
+	color: #3333CC;
+	}
+h5, h6 {
+	color: #333333;
+	}
+h2 {
+	margin-bottom: 35px;
+	margin-top: 25px;
+	}
+h4 {
+	font: 11px verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #3333CC;
+	}
+h3 {
+	color: #3333CC;
+	}
+p+h3
+	{
+	margin-top: 30px;
+	}
+h4+p {
+	margin-top: -8px;
+	}
+p+h4 {
+	margin-top: 25px;
+	}
+a {
+	text-decoration: none;
+	text-decoration : underline;
+	}
+a:link {
+	color: #0000CD;
+	text-decoration : underline;
+	}
+a:visited {
+	color: purple;
+	text-decoration : underline;
+	}
+a:active {
+	background-color: transparent;
+	color: red;
+	}
+#banner{
+	background : url("/img/bannerbackground.gif") #032568 no-repeat bottom left;
+	margin-bottom : 25px;
+	padding : 15px 10% 15px 100px;
+	text-align : right;
+	background-color: #8394b7;
+	border-top-width: 0;
+	border-bottom-width: 1px;
+	border-right-width: 0;
+	border-left-width: 0;
+	border-style: solid;
+	border-color: #330066;
+	color : White;
+}
+.biglink {
+	line-height: 28px;
+	font-size: 26px;
+	font-weight: bold;
+	font-family: Lucida Grande, verdana, arial, helvetica, sans-serif;
+	}
+.biglink a:link, .biglink a:visited {
+	color: #EABA00;
+	}
+#tagline span.left {
+	float: left;
+	text-align: left;
+	width: 49%;
+	}
+.nav {
+	font: 11px verdana, arial, helvetica, sans-serif;
+	color: #483D8B;
+	}
+.nav a, .nav a:link, .nav a:visited {
+	color: #B0C4DE;
+	}
+.nav a:hover {
+	color: #EABA00;
+	}
+#tagline span.right {
+	float: right;
+	text-align: right;
+	width: 49%;
+	}
+#content  {
+	padding:  0 10% 50px 100px;
+	}
+#footertext {
+	margin-top: 50px;
+	border-top-width: 1px;
+	border-bottom-width: 0;
+	border-right-width: 0;
+	border-left-width: 0;
+	border-style: solid;
+	border-color: #032568;
+	color: #032568;
+	}
+#sidebar  {
+	font: 11px verdana, arial, helvetica, sans-serif;
+	line-height: 19px;
+    padding:  0px 60px 0px 15px;
+ 	color:  #333333;
+    background-color: white;
+    min-width: 50px;
+	}
+#sidebar h4 {
+	color: #333333;	
+	font: 11px verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	}
+.bigbottommargin {
+	margin-bottom: 20px;
+	}
+.item {
+	font: 11px verdana, arial, helvetica, sans-serif;
+	line-height: 19px;
+	margin-top: 10px;
+	margin-bottom: 25px;
+    }
+.day {
+    border-bottom-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    border-color: #032568;
+	font: 11px verdana, arial, helvetica, sans-serif;
+	line-height: 19px;
+    }
+.day a, .day a:link, .day a:visited {
+	color: #032568;
+	font-weight: bold;
+	}
+.day a:hover {
+	color: blue;
+	}
+#tagline {
+	color: #EABA00;
+	font: 10px Lucida Grande, verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	}
+.timeposted {
+	font-size: 10px;
+	color: #666666;
+	}
+.timeposted a, .timeposted a:link, .timeposted a:visited {
+	color: #666666;
+	font-weight: normal;
+	}
+.timeposted a:hover {
+	color: blue;
+	}
+.bugtitle {
+	background-color: #EEEEFF;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: #000066;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	padding-left: 3px;
+	}
+.bug {
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    border-color: #000066;
+	}
+.smallbugtype {
+	color: #666666;
+	font: 10px verdana, arial, helvetica, sans-serif;	
+	}
+.buglabel {
+	color: #666666;
+	}
+.bug {
+	color: #000000;
+	}
+#spacer {
+	margin-top: 50px;
+	}
+code.frontier, pre.frontier {
+	font: 10px Geneva, Monaco, Courier, sans-serif;
+	color: #006600;
+	}
+code.ccode {
+	font: 10px Monaco, Courier, sans-serif;
+	color: #006600;
+	}
+code, .cocoacode {
+	font: 10px Monaco, Courier, sans-serif;
+	color: #006600;
+	}
+.applescriptcode, .phpcode, .sqlcode {
+	font: 10px Geneva, Monaco, Courier, sans-serif;
+	color: #006600;
+	}
+.htmlcode {
+	font: 10px Geneva, Monaco, Courier, sans-serif;
+	color: #006600;
+	}
+.commentpost {
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	border-right-width: 0;
+	border-left-width: 0;
+	border-style: solid;
+	border-color: #330066;
+	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+	}
+.comment {
+	border-top-width: 0px;
+	border-bottom-width: 1px;
+	border-right-width: 0;
+	border-left-width: 0;
+	border-style: solid;
+	border-color: #330066;
+	background-color: white;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	}
+.importantnote {
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-right-width: 2px;
+	border-left-width: 2px;
+	border-style: solid;
+	border-color: #330066;
+	background-color: #E0F0E0;
+	padding: 5px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	}
+.errormessage {
+	color: red;
+	}
+.smallnews td {
+	border-top-width: 1px;
+	border-bottom-width: 0;
+	border-right-width: 0;
+	border-left-width: 0;
+	border-style: solid;
+	border-color: #330066;
+	}
+.smallnews td {
+	line-height: 20px;
+	}
+.smallnews td {
+	padding-bottom: 15px;
+	padding-top: 5px;
+	}
+.smallnews {
+	line-height: 20px;
+	}
+td.newsDateCell {
+	color: #330066;
+	background-color: #EEFFEE;
+	border-top-width: 1px;
+	border-bottom-width: 0;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: #330066;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	padding-left: 3px;
+	}
+.searchresult {
+	margin-bottom: 25px;
+	margin-top: 10px;
+	}

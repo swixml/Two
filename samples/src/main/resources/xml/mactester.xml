@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame size="640,480" title="Hello SWIXML World" bundle="locale.swix">
+  <menubar name="menubar">
+    <menu text="mus_Help">
+      <menuitem name="mi_help" text="mis_Help" icon="img_Help" initclass="MacHelpAction" Accelerator="acc_Help" macos_help="true"/>
+      <separator/>
+      <menuitem name="mi_exit" text="mis_Exit" icon="img_Exit" mnemonic="mn_Exit" initclass="MacExitAction" Accelerator="acc_Exit"  macos_quit="true"/>      
+      <menuitem visible="false" text="invisible!" initclass="MacMultipleAction" macos_preferences="true" macos_about="true"/>	
+    </menu>
+  </menubar>
+  <panel layout="borderlayout" background="666666" constraints="BorderLayout.CENTER">
+    <splitpane oneTouchExpandable="true" dividerLocation="200">
+      <scrollPane>
+        <tree name="tree"/>
+      </scrollPane>
+      <panel name="preview" border="LoweredBevelBorder" layout="borderlayout">
+         <table name="table"/>
+      </panel>
+    </splitpane>
+  </panel>
+</frame>
