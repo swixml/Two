@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+   <head>
+      <link rel='stylesheet' type='text/css' href='swixml.css' title='Style'>
+      <title>
+      </title>
+   </head>
+   <body>
+      <h2>
+         Custom Attributes
+      </h2>
+      <h3>
+         Declared in : org.swixml.Parser
+      </h3>
+      <hr>
+      <h4>
+         Attributes
+      </h4>
+      <table border='1'>
+         <thead>
+            <tr>
+               <th>
+                  Attribute Name
+               </th>
+               <th>
+                  Attribute Type<br>
+                  (after conversion)
+               </th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  bundle
+               </td>
+               <td>
+                  String (resource bundle name)<br>
+                  <strong>root element attribute </strong>
+                  <hr>
+                  Example: bundle=&#39;locale.GermanStrings&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  constraints
+               </td>
+               <td>
+                  layout constraint,<br>
+                  descr. how to place this object into its parent container 
+                  <hr>
+                  Example: constraints=&#39;BorderLayout.CENTER&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  id
+               </td>
+               <td>
+                  String<br>
+                  unique id to find this component after rendering 
+                  <hr>
+                  Example: id=&#39;Lbl_OK&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  include
+               </td>
+               <td>
+                  String (file#id)<br>
+                  Includes the content of a tag defined in an external xml
+                  document.<br>
+                  (works in compliance with W3C XLink and XPointer specs.) 
+                  <hr>
+                  Example: &lt;mytag include=&quot;tags.xml#xyz&quot;/&gt;<br>
+                  The content of the tag with the id=&quot;xyz&quot; in the
+                  external document &quot;tags.xml&quot; gets added at run-time
+                  into mytag&#39;s content.
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  initclass
+               </td>
+               <td>
+                  String<br>
+                  Class to deliver initialization object to be passed into tag
+                  object constructor. If the class implements a static
+                  getInstance() method then this will be used instead of
+                  constructing a parameter object. 
+                  <hr>
+                  Example: &lt;table
+                  initclass=&#39;myPackage.MyTableModel&#39;&gt;<br>
+                  with MyTableModel extends TableModel ..
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  locale
+               </td>
+               <td>
+                  String (used to construct a <em>Locale</em> object) 
+                  <hr>
+                  Example: locale=&#39;de&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_about
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  about action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_about=&#39;true&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_openapp
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  openApplication action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_openapp=&#39;true&#39;
+               </td>
+            </tr>			
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_openfile
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  openFile action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_openfile=&#39;true&#39;
+               </td>
+            </tr>			
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_print
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  Print action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_print=&#39;true&#39;
+               </td>
+            </tr>			
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_preferences
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  Preferences action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_preferences=&#39;true&#39;
+               </td>
+            </tr>			
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_quit
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  Quit action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_quit=&#39;true&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <img src="img/apple.gif" alt="" width="24" height="32" hspace="4" border="0">macos_reopen
+               </td>
+               <td>
+                  String (true or false) flags an action to be the default
+                  application Reopen action (used only on MAC OS X)<br>
+                   <strong>requires an Action attribute in the same
+                  tag</strong> 
+                  <hr>
+                  Example: macos_reopen=&#39;true&#39;
+               </td>
+            </tr>						
+            <tr>
+               <td>
+                  plaf
+               </td>
+               <td>
+                  String (PLAF class name) (ignored on MAC OS X)<br>
+                   <strong>root element attribute</strong> 
+                  <hr>
+                  Example:
+                  plaf=&#39;com.sun.java.swing.plaf.windows.WindowsLookAndFeel&#39;
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  refid
+               </td>
+               <td>
+                  String (id) 
+                  <hr>
+                  Example: refid=&#39;LBL_OK&#39;<br>
+                  <p>
+                     The <em>refid</em> attribute can be used to clone
+                     attributes from another tag. While this doesn&#39;t work
+                     recursively, it doesn&#39;t matter what the tag name is
+                     and will just clone all the attributes that are <b>not</b>
+                     already defined for the tag.<br>
+                     Therefore, provided attributes are not overwritten.<br>
+                     The tag providing the attributes can be anywhere, it does
+                     not have to be parsed/rendered already.
+                  </p>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <p>
+         Copyright &copy; 2002 - 2007 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.
+      </p>
+   </body>
+</html>
+

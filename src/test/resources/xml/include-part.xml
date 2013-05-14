@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<doc>
-  <panel id="PNL_OK_CANCEL">
-    <button Text="OK" Action="okAction"/>
-    <button Text="Cancel" Action="cancelAction"/>
-  </panel>
-</doc>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame size="400,400" title="Converter Tests">
+  <panel id="pnl" constraints="BorderLayout.SOUTH"
+         border="TitledBorder(TitledBorder, myTitle, TitledBorder.CENTER, TitledBorder.BELOW_BOTTOM, VERDANA-BOLD-18, blue)">
+    <button text="Click Me"/>
+  </panel>
+</frame>

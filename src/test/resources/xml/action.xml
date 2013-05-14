@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<frame size="640,480" title="SWIXML Test Descriptor" DefaultCloseOperation="JFrame.EXIT_ON_CLOSE">
-  <panel>
-    <!-- for action generator test -->
-    <button id="btn1" text="Click Button1" action="submitAction"/>
-    <button id="btn2" text="Click Button2" action="submit"/>
-
-  </panel>
-</frame>

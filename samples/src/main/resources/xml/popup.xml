@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<popupmenu id="popupmenu">
+    <menuitem id="popupmi_Open" action="openAction" text="Open" mnemonic="VK_A"/>
+    <menuitem id="popupmi_OpenAs" action="openAsAction" text="Open As..." mnemonic="VK_A"/>
+</popupmenu>

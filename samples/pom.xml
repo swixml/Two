@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.swixml</groupId>
-	<artifactId>swixml</artifactId>
+	<artifactId>swixml-samples</artifactId>
 	<version>2.0.1</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<name>Swixml</name>
 	<url>http://www.swixml.org</url>
 	<description>GUI generating engine for Java applications</description>
@@ -69,6 +69,11 @@
 			<artifactId>ui</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.swixml</groupId>
+			<artifactId>swixml-core</artifactId>
+			<version>2.0.1</version>
+		</dependency>
 	</dependencies>
 	<licenses>
 		<license>
@@ -76,7 +81,4 @@
 			<url>file://licence.txt</url>
 		</license>
 	</licenses>
-	<modules>
-		<module>swixml-core</module>
-	</modules>
 </project>
