@@ -64,6 +64,7 @@ import java.util.Map;
  * It remains in the responsibility of the main application that the registered
  * Action are available and fully funtional (loaded).
  */
+@SuppressWarnings("deprecation")
 public class MacApp extends Application {
   private static MacApp INSTANCE = null;
 

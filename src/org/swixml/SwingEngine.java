@@ -80,6 +80,7 @@ import java.util.List;
  * @author <a href="mailto:wolf@paulus.com">Wolf Paulus</a>
  * @version $Revision: 1.5 $
  */
+@SuppressWarnings("UnusedDeclaration")
 public class SwingEngine {
   //
   //  Static Constants
@@ -227,6 +228,7 @@ public class SwingEngine {
    *
    * @param resource <code>String</code>
    */
+  @SuppressWarnings("deprecation")
   public SwingEngine(final String resource) {
     this(SwingEngine.class.getClassLoader(), resource);
   }

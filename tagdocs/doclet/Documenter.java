@@ -71,7 +71,7 @@ import java.lang.reflect.Method;
 
 public class Documenter {
   private static final String DIR = "./build/tagdocs/";
-  private static final String API = "http://java.sun.com/javase/6/docs/api/";
+  private static final String API = "http://java.sun.com/javase/7/docs/api/";
   private Map tags = SwingTagLibrary.getInstance().getTagClasses();
   private Map converters = ConverterLibrary.getInstance().getConverters();
 
@@ -148,7 +148,7 @@ public class Documenter {
 
       }
 
-      w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2007 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
+      w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2013 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
       w.close();
     }
   }
@@ -172,7 +172,7 @@ public class Documenter {
       w.write( "<tr><td>" + ((Class) keys[i]).getName() + "</td>" );
       w.write( "<td>" + converter.getClass().getName() + "</td></tr>" );
     }
-    w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2007 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
+    w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2013 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
     w.close();
   }
 }

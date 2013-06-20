@@ -62,12 +62,13 @@ import org.swixml.SwingEngine;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.lang.reflect.Method;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The <code>BorderConverter</code> class defines a converter that creates Border objects based on a provided String.
  * The BorderConverter internally uses the <code>javax.swing.BorderFactory</code> and its static <i>create</i>.. methods
- * to instatiate differnt kinds of borders, based on the given String.<br>
+ * to instantiate different kinds of borders, based on the given String.<br>
  * Additional parameters to create a border need to be comma separated and enclosed in parentheses.<br><br>
  * Parameter types get converted through the <code>ConverterLibrary</code>. Therefore, only parameter classes are supported that
  * have registered  converters in the ConverLibrary.
@@ -79,6 +80,8 @@ import java.util.StringTokenizer;
  * <li>border="TitledBorder(My Title)"</li>
  * <li>border="RaisedBevelBorder"</li>
  * <li>border="TitledBorder(TitledBorder, myTitle, TitledBorder.CENTER, TitledBorder.BELOW_BOTTOM, VERDANA-BOLD-18, blue)"</li>
+ * <li>border="TitledBorder(LineBorder(red,2), myTitle, TitledBorder.CENTER, TitledBorder.ABOVE_TOP)"</li>
+ * <li>border="CompoundBorder(LineBorder(blue,5), CompoundBorder(EmptyBorder(2,2,2,2), RaisedBevelBorder))"</li>
  * </ul>
  * </pre>
  *
@@ -108,9 +111,9 @@ public class BorderConverter implements Converter {
    */
   public Object convert(final Class type, final Attribute attr, Localizer localizer) {
     Border border = null;
-    StringTokenizer st = new StringTokenizer(attr.getValue(), "(,)"); // border type + parameters
-    int n = st.countTokens() - 1; // number of parameter to create a border
-    String borderType = st.nextToken().trim();
+    List<String> params = parse(attr.getValue()); // border type + parameters
+    int n = params.size() - 1; // number of parameter to create a border
+    String borderType = params.remove(0).trim();
     Method method = null;
     ConverterLibrary cvtlib = ConverterLibrary.getInstance();
     //
@@ -125,7 +128,7 @@ public class BorderConverter implements Converter {
       }
       if (method == null) { // try with empty string
         n = 1;
-        st = new StringTokenizer(" ", "(,)");
+        params.add(" ");
       }
     }
     if (n == 1) {
@@ -154,7 +157,8 @@ public class BorderConverter implements Converter {
       Object[] args = new Object[n];
       for (int i = 0; i < n; i++) { // fill argument array
         Converter converter = cvtlib.getConverter(method.getParameterTypes()[i]);
-        Attribute attrib = new Attribute(String.class.equals(converter.convertsTo()) ? "title" : "NA", st.nextToken().trim());
+        Attribute attrib =
+          new Attribute(String.class.equals(converter.convertsTo()) ? "title" : "NA", params.remove(0).trim());
         if (converter != null) {
           args[i] = converter.convert(method.getParameterTypes()[i], attrib, localizer);
         } else {
@@ -178,4 +182,47 @@ public class BorderConverter implements Converter {
   public Class convertsTo() {
     return TEMPLATE;
   }
+  
+  /**
+   * Parse a border attribute value into the border type and parameters, where the parameters may specify
+   * additional <code>Border</code> constructors. For example, the following string <br>
+   * "CompoundBorder(LineBorder(blue,5), CompoundBorder(EmptyBorder(2,2,2,2), RaisedBevelBorder))" <br>
+   * would be parsed into three strings: <br>
+   * CompoundBorder <br>
+   * LineBorder(blue,5) <br>
+   * CompoundBorder(EmptyBorder(2,2,2,2), RaisedBevelBorder) <br>
+   * 
+   * @param input <code>String</code> containing the value to parse
+   * @return <code>List&lt;String&gt;</code> containing the values parsed
+   */
+  private List<String> parse(String input) {
+    ArrayList<String> tokens = new ArrayList<String>();
+    int index = input.indexOf('(');
+    if (index < 0) {
+      tokens.add(input);
+    }
+    else {
+      tokens.add(input.substring(0, index));
+      while (++index < input.length()) {
+        int depth = 0;
+        int beginIndex = index;
+        while ((depth >= 0) && (++index < input.length())) {
+          if ((input.charAt(index) == ',') && (depth == 0)) {
+            break;
+          }
+          if (input.charAt(index) == '(') {
+            ++depth;
+          }
+          else if (input.charAt(index) == ')') {
+            --depth;
+          }
+        }
+        if ( index < input.length()) {
+          tokens.add(input.substring(beginIndex, index));
+        }
+      }
+    }
+    return tokens;
+  }
+  
 }
