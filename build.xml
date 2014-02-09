@@ -1,293 +1,297 @@
-<!-- $Id: build.xml,v 1.9 2011/04/24 06:43:09 wolfpaulus Exp $ -->
+<!-- $Id: build.xml,v 1.9 2014/02/08 wolfpaulus Exp $ -->
 <!--
   For instructions on how to build Swixml, please view the README.txt file.
 -->
 <project name="swixml" default="package" basedir=".">
 
-  <!-- =================================================================== -->
-  <!-- Initialization target                                               -->
-  <!-- =================================================================== -->
-  <target name="init">
-    <tstamp/>
+    <!-- =================================================================== -->
+    <!-- Initialization target                                               -->
+    <!-- =================================================================== -->
+    <target name="init">
+        <tstamp/>
 
-    <!--
-      Gives users a chance to override without editing this file
-      (and without using -D arguments each time they build).
-      The build properties a user is likely to override include:
-        - lib.dir            The directory where to look for the default JAR
-                             files.  Defaults to ./lib
-        - mac_ui.jar         The JAR containing the MAC OS X UI classes.
-                             Defaults to ${lib.dir}/ui.jar
-     -->
-    <property file="../swixml.build.properties"/>
-    <property file="${basedir}/build.properties"/>
+        <!--
+          Gives users a chance to override without editing this file
+          (and without using -D arguments each time they build).
+          The build properties a user is likely to override include:
+            - lib.dir            The directory where to look for the default JAR
+                                 files.  Defaults to ./lib
+            - mac_ui.jar         The JAR containing the MAC OS X UI classes.
+                                 Defaults to ${lib.dir}/ui.jar
+         -->
+        <property file="../swixml.build.properties"/>
+        <property file="${basedir}/build.properties"/>
+        <property name="java.docs" location="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/docs"/>
 
-    <property name="Name" value="SWIXML"/>
-    <property name="name" value="swixml"/>
-    <property name="build.id" value="201"/>
-    <property name="version" value="2.0 beta 1 (#${build.id})"/>
-    <property name="version.impl" value="${version}"/>
-    <property name="version.spec" value="2.0"/>
-    <property name="year" value="2011"/>
+        <property name="Name" value="SWIXML"/>
+        <property name="name" value="swixml"/>
+        <property name="build.id" value="230"/>
+        <property name="version" value="2.3 (#${build.id})"/>
+        <property name="version.impl" value="${version}"/>
+        <property name="version.spec" value="2.3"/>
+        <property name="year" value="2014"/>
 
-    <property name="ant.build.javac.source" value="1.6"/>
-    <property name="ant.build.javac.target" value="1.6"/>
+        <property name="ant.build.javac.source" value="1.6"/>
+        <property name="ant.build.javac.target" value="1.6"/>
 
-    <echo message="----------- ${Name} ${version} ------------"/>
+        <echo message="----------- ${Name} ${version} ------------"/>
 
-    <property name="compile.debug" value="false"/>
-    <property name="compile.optimize" value="true"/>
-    <property name="compile.deprecation" value="true"/>
+        <property name="compile.debug" value="false"/>
+        <property name="compile.optimize" value="true"/>
+        <property name="compile.deprecation" value="true"/>
 
-    <property name="src.dir" location="src"/>
-    <property name="tagdocs.dir" location="tagdocs"/>
-    <property name="samples.dir" location="samples"/>
-    <property name="samples.dest" location="build/samples"/>
-    <property name="lib.dir" location="lib"/>
-    <property name="packages" value="org.swixml.*"/>
-    <property name="main.class" value="org.swixml.SwingEngine"/>
+        <property name="src.dir" location="src"/>
+        <property name="tagdocs.dir" location="tagdocs"/>
+        <property name="samples.dir" location="samples"/>
+        <property name="samples.dest" location="build/samples"/>
+        <property name="lib.dir" location="lib"/>
+        <property name="packages" value="org.swixml.*"/>
+        <property name="main.class" value="org.swixml.SwingEngine"/>
 
-    <property name="build.dir" location="build"/>
-    <property name="build.src" location="build/src"/>
-    <property name="build.dest" location="build/classes"/>
-    <property name="build.javadocs" location="build/apidocs"/>
-    <property name="build.tagdocs" location="build/tagdocs"/>
-    <property name="build.xsd" location="build/2007"/>
+        <property name="build.dir" location="build"/>
+        <property name="build.src" location="build/src"/>
+        <property name="build.dest" location="build/classes"/>
+        <property name="build.javadocs" location="build/apidocs"/>
+        <property name="build.tagdocs" location="build/tagdocs"/>
+        <property name="build.xsd" location="build/2007"/>
 
-    <property name="dist.dir" location="dist"/>
+        <property name="dist.dir" location="dist"/>
 
-    <property name="package.dir" location="package"/>
+        <property name="package.dir" location="package"/>
 
-    <filter token="year" value="${year}"/>
-    <filter token="version" value="${version}"/>
-    <filter token="date" value="${TODAY}"/>
-    <filter token="log" value="true"/>
-    <filter token="verbose" value="true"/>
+        <filter token="year" value="${year}"/>
+        <filter token="version" value="${version}"/>
+        <filter token="date" value="${TODAY}"/>
+        <filter token="log" value="true"/>
+        <filter token="verbose" value="true"/>
 
-    <!-- Default JAR libraries -->
-    <!-- Libraries used at compile time only -->
-    <property name="forms.jar" location="${lib.dir}/jgoodies-forms-1.7.1.jar"/>
-    <property name="mac_ui.jar" location="${lib.dir}/ui.jar"/>    
-    <!-- Libraries used for sample code only -->
-    <property name="jcalendar.jar" location="${lib.dir}/jcalendar-1.3.3.jar"/>
-    <property name="substance.jar" location="${lib.dir}/substance.jar"/>
-    <property name="j2h.jar" location="${lib.dir}/j2h.jar"/>
+        <!-- Default JAR libraries -->
+        <!-- Libraries used at compile time only -->
+        <property name="forms.jar" location="${lib.dir}/jgoodies-forms-1.7.2.jar"/>
+        <property name="mac_ui.jar" location="${lib.dir}/ui.jar"/>
+        <!-- Libraries used for sample code only -->
+        <property name="jcalendar.jar" location="${lib.dir}/jcalendar-1.4.jar"/>
+        <property name="substance.jar" location="${lib.dir}/substance-6.0.jar"/>
+        <property name="j2h.jar" location="${lib.dir}/j2h.jar"/>
 
-    <property name="swixml-core" location="${build.dest}"/>
+        <property name="swixml-core" location="${build.dest}"/>
 
-    <!-- Compilation class path -->
-    <path id="compile.class.path">
-      <pathelement location="${forms.jar}"/>
-      <pathelement location="${mac_ui.jar}"/>
-      <pathelement location="${jcalendar.jar}"/>
-      <pathelement location="${substance.jar}"/>
-    </path>
+        <!-- Compilation class path -->
+        <path id="compile.class.path">
+            <pathelement location="${forms.jar}"/>
+            <pathelement location="${mac_ui.jar}"/>
+            <pathelement location="${jcalendar.jar}"/>
+            <pathelement location="${substance.jar}"/>
+        </path>
 
-    <path id="run.class.path">
-      <path refid="compile.class.path"/>
-      <pathelement location="${swixml-core}"/>
-    </path>
+        <path id="run.class.path">
+            <path refid="compile.class.path"/>
+            <pathelement location="${swixml-core}"/>
+        </path>
 
-  </target>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Help on usage                                                       -->
-  <!-- =================================================================== -->
-  <target name="usage">
-    <echo message=""/>
-    <echo message=""/>
-    <echo message="SWIXML Build file"/>
-    <echo message="-------------------------------------------------------------"/>
-    <echo message=""/>
-    <echo message=" available targets are:"/>
-    <echo message=""/>
-    <echo message="   package  --> generates the swixml.jar file (default)"/>
-    <echo message="   compile  --> compiles the source code"/>
-    <echo message="   javadoc  --> generates the API documentation"/>
-    <echo message="   clean    --> cleans up the directory"/>
-    <echo message=""/>
-    <echo message=" See the comments inside the build.xml file for more details."/>
-    <echo message="-------------------------------------------------------------"/>
-    <echo message=""/>
-    <echo message=""/>
-  </target>
+    <!-- =================================================================== -->
+    <!-- Help on usage                                                       -->
+    <!-- =================================================================== -->
+    <target name="usage">
+        <echo message=""/>
+        <echo message=""/>
+        <echo message="SWIXML Build file"/>
+        <echo message="-------------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message=" available targets are:"/>
+        <echo message=""/>
+        <echo message="   package  --> generates the swixml.jar file (default)"/>
+        <echo message="   compile  --> compiles the source code"/>
+        <echo message="   javadoc  --> generates the API documentation"/>
+        <echo message="   clean    --> cleans up the directory"/>
+        <echo message=""/>
+        <echo message=" See the comments inside the build.xml file for more details."/>
+        <echo message="-------------------------------------------------------------"/>
+        <echo message=""/>
+        <echo message=""/>
+    </target>
 
 
-  <!-- =================================================================== -->
-  <!-- Prepares the build directory                                        -->
-  <!-- =================================================================== -->
-  <target name="prepare" depends="init">
-    <mkdir dir="${build.dir}"/>
-  </target>
+    <!-- =================================================================== -->
+    <!-- Prepares the build directory                                        -->
+    <!-- =================================================================== -->
+    <target name="prepare" depends="init">
+        <mkdir dir="${build.dir}"/>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Prepares the source code                                            -->
-  <!-- =================================================================== -->
-  <target name="prepare-src" depends="prepare">
-    <!-- create directories -->
-    <mkdir dir="${build.src}"/>
-    <mkdir dir="${build.dest}"/>
+    <!-- =================================================================== -->
+    <!-- Prepares the source code                                            -->
+    <!-- =================================================================== -->
+    <target name="prepare-src" depends="prepare">
+        <!-- create directories -->
+        <mkdir dir="${build.src}"/>
+        <mkdir dir="${build.dest}"/>
 
-    <!-- copy src files -->
-    <copy todir="${build.src}" filtering="yes">
-      <fileset dir="${src.dir}" excludes="**/*.png"/>
-    </copy>
-    <!-- copy swixml doc images -->
-    <copy todir="${build.src}" filtering="no">
-      <fileset dir="${src.dir}" includes="**/*.png"/>
-    </copy>
+        <!-- copy src files -->
+        <copy todir="${build.src}" filtering="yes">
+            <fileset dir="${src.dir}" excludes="**/*.png"/>
+        </copy>
+        <!-- copy swixml doc images -->
+        <copy todir="${build.src}" filtering="no">
+            <fileset dir="${src.dir}" includes="**/*.png"/>
+        </copy>
 
-  </target>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Prepares the example code                                           -->
-  <!-- =================================================================== -->
-  <target name="prepare-samples" depends="prepare">
-    <!-- create directories -->
-    <mkdir dir="${samples.dest}"/>
+    <!-- =================================================================== -->
+    <!-- Prepares the example code                                           -->
+    <!-- =================================================================== -->
+    <target name="prepare-samples" depends="prepare">
+        <!-- create directories -->
+        <mkdir dir="${samples.dest}"/>
 
-    <!-- copy src files -->
-    <copy todir="${samples.dest}" filtering="yes">
-      <fileset dir="${samples.dir}" excludes="**/*.gif"/>
-    </copy>
-    <!-- copy swixml doc images -->
-    <copy todir="${samples.dest}" filtering="no">
-      <fileset dir="${samples.dir}" includes="**/*.gif"/>
-    </copy>
-  </target>
+        <!-- copy src files -->
+        <copy todir="${samples.dest}" filtering="yes">
+            <fileset dir="${samples.dir}" excludes="**/*.gif **/*.png"/>
+        </copy>
+        <!-- copy swixml doc images -->
+        <copy todir="${samples.dest}" filtering="no">
+            <fileset dir="${samples.dir}" includes="**/*.gif **/*.png"/>
+        </copy>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Compiles the source directory                                       -->
-  <!-- =================================================================== -->
-  <target name="compile" depends="prepare-src" description="Compiles the source code">
-    <javac
+    <!-- =================================================================== -->
+    <!-- Compiles the source directory                                       -->
+    <!-- =================================================================== -->
+    <target name="compile" depends="prepare-src" description="Compiles the source code">
+        <javac
             srcdir="${build.src}"
             destdir="${build.dest}"
             debug="${compile.debug}"
             optimize="${compile.optimize}"
-            deprecation="${compile.deprecation}">
-      <classpath refid="compile.class.path"/>
-    </javac>
-  </target>
+            deprecation="${compile.deprecation}"
+            includeantruntime="false">
+            <classpath refid="compile.class.path"/>
+        </javac>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Compiles the samples directory                                      -->
-  <!-- =================================================================== -->
-  <target name="samples" depends="prepare-samples,package" description="Compiles the samples directory">
-    <javac
+    <!-- =================================================================== -->
+    <!-- Compiles the samples directory                                      -->
+    <!-- =================================================================== -->
+    <target name="samples" depends="prepare-samples,package" description="Compiles the samples directory">
+        <javac
             srcdir="${samples.dest}"
             destdir="${samples.dest}"
             debug="${compile.debug}"
             optimize="${compile.optimize}"
-            deprecation="${compile.deprecation}">
-      <classpath refid="run.class.path"/>
-    </javac>
-  </target>
+            deprecation="${compile.deprecation}"
+            includeantruntime="false">
+            <classpath refid="run.class.path"/>
+        </javac>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Creates the class package                                           -->
-  <!-- =================================================================== -->
-  <target name="package" depends="compile" description="Creates the class package">
-    <fixcrlf srcdir="." includes="**/*.bat" excludes="build*.*" eol="crlf"/>
-    <fixcrlf srcdir="." includes="**/*.sh" excludes="build*.*" eol="lf"/>
+    <!-- =================================================================== -->
+    <!-- Creates the class package                                           -->
+    <!-- =================================================================== -->
+    <target name="package" depends="compile" description="Creates the class package">
+        <fixcrlf srcdir="." includes="**/*.bat" excludes="build*.*" eol="crlf"/>
+        <fixcrlf srcdir="." includes="**/*.sh" excludes="build*.*" eol="lf"/>
 
-    <!-- Create Manifest -->
-    <mkdir dir="${build.dest}/META-INF"/>
+        <!-- Create Manifest -->
+        <mkdir dir="${build.dest}/META-INF"/>
 
-    <manifest file="${build.dest}/META-INF/MANIFEST.MF">
-      <attribute name="Built-By" value="${user.name}"/>
-      <section name="common">
-        <attribute name="Specification-Title" value="${ant.project.name}"/>
-        <attribute name="Specification-Vendor" value="swixml.org"/>
-        <attribute name="Specification-Version" value="${version.spec}"/>
-        <attribute name="Implementation-Title" value="org.swixml"/>
-        <attribute name="Implementation-Vendor" value="swixml.org"/>
-        <attribute name="Implementation-Version" value="${version.impl}"/>
-      </section>
-    </manifest>
+        <manifest file="${build.dest}/META-INF/MANIFEST.MF">
+            <attribute name="Built-By" value="${user.name}"/>
+            <section name="common">
+                <attribute name="Specification-Title" value="${ant.project.name}"/>
+                <attribute name="Specification-Vendor" value="swixml.org"/>
+                <attribute name="Specification-Version" value="${version.spec}"/>
+                <attribute name="Implementation-Title" value="org.swixml"/>
+                <attribute name="Implementation-Vendor" value="swixml.org"/>
+                <attribute name="Implementation-Version" value="${version.impl}"/>
+            </section>
+        </manifest>
 
-    <jar jarfile="${build.dir}/${name}.jar"
-         basedir="${build.dest}"
-         excludes="META-INF/MANIFEST.MF"
-         manifest="${build.dest}/META-INF/MANIFEST.MF"/>
-  </target>
+        <jar jarfile="${build.dir}/${name}.jar"
+             basedir="${build.dest}"
+             excludes="META-INF/MANIFEST.MF"
+             manifest="${build.dest}/META-INF/MANIFEST.MF"/>
+    </target>
 
 
+    <!-- =================================================================== -->
+    <!-- Decode Java code in HTML     depends="javadoc"                                       -->
+    <!-- =================================================================== -->
+    <taskdef name="java2html" classname="com.java2html.Java2HTMLTask">
+        <classpath>
+            <pathelement path="${classpath}"/>
+            <pathelement location="./lib/j2h.jar"/>
+        </classpath>
+    </taskdef>
 
-  <!-- =================================================================== -->
-  <!-- Decode Java code in HTML     depends="javadoc"                                       -->
-  <!-- =================================================================== -->
-  <taskdef name="java2html" classname="com.java2html.Java2HTMLTask">
-   <classpath>
-      <pathelement path="${classpath}"/>
-      <pathelement location="./lib/j2h.jar"/>
-    </classpath>
-  </taskdef>
-
-  <target name="j2h" depends="init">
-    <java2html
+    <target name="j2h" depends="init">
+        <java2html
             title="Swixml Sample Code"
             simple="no"
             tabsize="2"
             marginsize="2"
             header="true"
             footer="true"
-            destination="${build.dir}/html">
-      <fileset dir="samples">
-        <include name="**.java"/>
-      </fileset>
+            destination="${samples.dest}/html">      
+            <fileset dir="${samples.dest}/src">
+                <include name="**.java"/>
+            </fileset>
 
-      <javadoc localRef="${java.home}/docs" httpRef="http://java.sun.com/javase/6/docs/api/"/>
-      <javadoc localRef="./build/apidocs" httpRef="http://www.swixml.org/apidocs"/>
+            <javadoc localRef="${java.docs}" httpRef="http://docs.oracle.com/javase/7/docs/api/"/>
+            <javadoc localRef="./build/apidocs" httpRef="http://www.swixml.org/apidocs"/>
 
-    </java2html>
-  </target>
+        </java2html>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Creates the TAG documentation                                       -->
-  <!-- =================================================================== -->
-  <target name="tagdoc" depends="compile" description="Creates the TAG documentation">
-    <mkdir dir="${build.tagdocs}"/>
+    <!-- =================================================================== -->
+    <!-- Creates the TAG documentation                                       -->
+    <!-- =================================================================== -->
+    <target name="tagdoc" depends="compile" description="Creates the TAG documentation">
+        <mkdir dir="${build.tagdocs}"/>
 
-    <!-- copy src files -->
-    <copy todir="${build.tagdocs}" filtering="yes">
-      <fileset dir="${tagdocs.dir}" excludes="**/*.java **/*.gif"/>
-    </copy>
+        <!-- copy src files -->
+        <copy todir="${build.tagdocs}" filtering="yes">
+            <fileset dir="${tagdocs.dir}" excludes="**/*.java **/*.gif **/*.png"/>
+        </copy>
 
-    <!-- copy images -->
-    <copy todir="${build.tagdocs}" filtering="no">
-      <fileset dir="${tagdocs.dir}" includes="**/*.gif" excludes="**/*.java"/>
-    </copy>
+        <!-- copy images -->
+        <copy todir="${build.tagdocs}" filtering="no">
+            <fileset dir="${tagdocs.dir}" includes="**/*.gif **/*.png" excludes="**/*.java"/>
+        </copy>
 
-    <javac
+        <javac
             srcdir="${tagdocs.dir}"
             destdir="${build.dest}"
             debug="${compile.debug}"
             optimize="${compile.optimize}"
-            deprecation="${compile.deprecation}">
-      <classpath refid="run.class.path"/>
-    </javac>
-    <java classpath="${build.dest};tagdocs" classname="doclet.Documenter"/>
-  </target>
+            deprecation="${compile.deprecation}"
+            includeantruntime="false">
+            <classpath refid="run.class.path"/>
+        </javac>
+        <java classpath="${build.dest};tagdocs" classname="doclet.Documenter"/>
 
-  <!-- =================================================================== -->
-  <!-- Creates the XML-Schema TAG documentation                                       -->
-  <!-- =================================================================== -->
-  <target name="xsd" depends="compile" description="Creates the XSD documentation">
-    <mkdir dir="${build.xsd}"/>
+    </target>
 
-    <java classpath="${build.dest};tagdocs" classname="org.swixml.SchemaGenerator">
-      <arg value="${build.xsd}/swixml.xsd"/>
-    </java>
-  </target>
+    <!-- =================================================================== -->
+    <!-- Creates the XML-Schema TAG documentation                                       -->
+    <!-- =================================================================== -->
+    <target name="xsd" depends="compile" description="Creates the XSD documentation">
+        <mkdir dir="${build.xsd}"/>
+
+        <java classpath="${build.dest};tagdocs" classname="org.swixml.SchemaGenerator">
+            <arg value="${build.xsd}/swixml.xsd"/>
+        </java>
+    </target>
 
 
-  <!-- =================================================================== -->
-  <!-- Creates the API documentation                                       -->
-  <!-- =================================================================== -->
-  <target name="javadoc" depends="prepare-src" description="Creates the API documentation">
-    <mkdir dir="${build.javadocs}"/>
-    <javadoc
+    <!-- =================================================================== -->
+    <!-- Creates the API documentation                                       -->
+    <!-- =================================================================== -->
+    <target name="javadoc" depends="prepare-src" description="Creates the API documentation">
+        <mkdir dir="${build.javadocs}"/>
+        <javadoc
             breakiterator="true"
             packagenames="${packages}"
             sourcepath="${build.src}"
@@ -300,56 +304,56 @@
             windowtitle="${Name} API v${version}"
             doctitle="${Name} v${version}&lt;br&gt;API Specification"
             header="&lt;b&gt;${Name}&lt;br&gt;&lt;font size='-1'&gt;${version}&lt;/font&gt;&lt;/b&gt;"
-            bottom="Copyright &#169; 2002 - ${year} - Wolf Paulus - &lt;a href='http://wolfpaulus.com' target='_blank'&gt;wolfpaulus.com&lt;/a&gt;. All rights reserved.">
+            bottom="Copyright (c) 2002 - ${year} - Wolf Paulus - &lt;a href='http://wolfpaulus.com' target='_blank'&gt;wolfpaulus.com&lt;/a&gt;. All rights reserved.">
 
-      <classpath refid="run.class.path"/>
+            <classpath refid="run.class.path"/>
 
-      <link href="http://java.sun.com/javase/6/docs/api/"/>
-    </javadoc>
-  </target>
+            <link href="http://docs.oracle.com/javase/7/docs/api/"/>
+        </javadoc>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Clean targets                                                       -->
-  <!-- =================================================================== -->
+    <!-- =================================================================== -->
+    <!-- Clean targets                                                       -->
+    <!-- =================================================================== -->
 
-  <target name="clean" depends="init" description="Removes build the distribution files">
-    <delete dir="./classes"/>
-    <delete dir="${dist.dir}"/>
-    <delete dir="${build.dir}"/>
+    <target name="clean" depends="init" description="Removes build the distribution files">
+        <delete dir="./classes"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${build.dir}"/>
 
-    <delete file="${Name}-${version}.tar.gz"/>
-    <delete file="${Name}-${version}.tar"/>
-    <delete file="${Name}-${version}.zip"/>
-  </target>
+        <delete file="${Name}-${version}.tar.gz"/>
+        <delete file="${Name}-${version}.tar"/>
+        <delete file="${Name}-${version}.zip"/>
+    </target>
 
-  <!-- =================================================================== -->
-  <!-- Create Distribution                                                 -->
-  <!-- =================================================================== -->
-  <target name="distribution" depends="clean,package,javadoc,tagdoc,xsd,samples,j2h">
+    <!-- =================================================================== -->
+    <!-- Create Distribution                                                 -->
+    <!-- =================================================================== -->
+    <target name="distribution" depends="clean,package,javadoc,tagdoc,xsd,samples,j2h">
 
-    <mkdir dir="${dist.dir}"/>
-    <!-- Copy needed files -->
-    <copy todir="${dist.dir}" filtering="no">
-      <fileset dir="." includes="**/*.*"/>
-    </copy>
-    <!-- Remove compiled stuff and duplicates -->
-    <delete dir="${dist.dir}/build/classes"/>
-    <delete dir="${dist.dir}/build/samples"/>
-    <delete dir="${dist.dir}/build/src"/>
-    <delete dir="${dist.dir}/tagdocs"/>
-    <delete dir="${dist.dir}/classes"/>
-    <delete>
-      <fileset dir="." includes="**/*.class"/>
-    </delete>
-    <!-- Create ZIP file -->
-    <delete file="../${name}_${build.id}.zip"/>
-    <zip destfile="../${name}_${build.id}.zip">
-      <zipfileset dir="${dist.dir}" prefix="${name}_${build.id}"/>
-    </zip>
+        <mkdir dir="${dist.dir}"/>
+        <!-- Copy needed files -->
+        <copy todir="${dist.dir}" filtering="no">
+            <fileset dir="." includes="**/*.*"/>
+        </copy>
+        <!-- Remove compiled stuff and duplicates -->
+        <delete dir="${dist.dir}/build/classes"/>
+        <delete dir="${dist.dir}/build/samples"/>
+        <delete dir="${dist.dir}/build/src"/>
+        <delete dir="${dist.dir}/tagdocs"/>
+        <delete dir="${dist.dir}/classes"/>
+        <delete>
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+        <!-- Create ZIP file -->
+        <delete file="../${name}_${build.id}.zip"/>
+        <zip destfile="../${name}_${build.id}.zip">
+            <zipfileset dir="${dist.dir}" prefix="${name}_${build.id}"/>
+        </zip>
 
-    <!-- Delete copy -->
-    <delete dir="${dist.dir}"/>
+        <!-- Delete copy -->
+        <delete dir="${dist.dir}"/>
 
-  </target>
+    </target>
 </project>
 
