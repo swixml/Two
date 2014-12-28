@@ -1,7 +1,7 @@
 /*--
  $Id: Documenter.java,v 1.2 2005/05/31 05:07:55 wolfpaulus Exp $
 
- Copyright (C) 2003-2014 Wolf Paulus.
+ Copyright (C) 2003-2015 Wolf Paulus.
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -71,7 +71,7 @@ import java.lang.reflect.Method;
 
 public class Documenter {
   private static final String DIR = "./build/tagdocs/";
-  private static final String API = "http://docs.oracle.com/javase/7/docs/api/";
+  private static final String API = "http://docs.oracle.com/javase/8/docs/api/";
   private Map tags = SwingTagLibrary.getInstance().getTagClasses();
   private Map converters = ConverterLibrary.getInstance().getConverters();
 
@@ -87,7 +87,7 @@ public class Documenter {
 
 
   /**
-   * Writes HTML-formatted inforamtion about the registered factories
+   * Writes HTML-formatted information about the registered factories
    */
   public void taginfo() throws IOException {
     Writer w = new BufferedWriter( new FileWriter( new File( DIR + "swixmenu.html" ) ) );
@@ -148,7 +148,7 @@ public class Documenter {
 
       }
 
-      w.write( "</tbody></table><hr>Copyright (c) 2002 - 2014 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
+      w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2015 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
       w.close();
     }
   }
@@ -172,7 +172,7 @@ public class Documenter {
       w.write( "<tr><td>" + ((Class) keys[i]).getName() + "</td>" );
       w.write( "<td>" + converter.getClass().getName() + "</td></tr>" );
     }
-    w.write( "</tbody></table><hr>Copyright (c) 2002 - 2014 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
+    w.write( "</tbody></table><hr>Copyright &copy; 2002 - 2015 - Wolf Paulus <a href='http://www.swixml.org' target='_top'>swixml.org</a>. All Rights Reserved.</body></html>" );
     w.close();
   }
 }

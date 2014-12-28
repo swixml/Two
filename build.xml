@@ -1,4 +1,4 @@
-<!-- $Id: build.xml,v 1.9 2014/02/08 wolfpaulus Exp $ -->
+<!-- $Id: build.xml,v 2.x 2015/01/01 wolfpaulus Exp $ -->
 <!--
   For instructions on how to build Swixml, please view the README.txt file.
 -->
@@ -21,15 +21,15 @@
          -->
         <property file="../swixml.build.properties"/>
         <property file="${basedir}/build.properties"/>
-        <property name="java.docs" location="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/docs"/>
+        <property name="java.docs" location="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/docs"/>
 
         <property name="Name" value="SWIXML"/>
         <property name="name" value="swixml"/>
-        <property name="build.id" value="230"/>
-        <property name="version" value="2.3 (#${build.id})"/>
+        <property name="build.id" value="240"/>
+        <property name="version" value="2.4 (#${build.id})"/>
         <property name="version.impl" value="${version}"/>
-        <property name="version.spec" value="2.3"/>
-        <property name="year" value="2014"/>
+        <property name="version.spec" value="2.4"/>
+        <property name="year" value="2015"/>
 
         <property name="ant.build.javac.source" value="1.6"/>
         <property name="ant.build.javac.target" value="1.6"/>
@@ -67,11 +67,11 @@
 
         <!-- Default JAR libraries -->
         <!-- Libraries used at compile time only -->
-        <property name="forms.jar" location="${lib.dir}/jgoodies-forms-1.7.2.jar"/>
+        <property name="forms.jar" location="${lib.dir}/jgoodies-forms-1.8.0.jar"/>
         <property name="mac_ui.jar" location="${lib.dir}/ui.jar"/>
         <!-- Libraries used for sample code only -->
         <property name="jcalendar.jar" location="${lib.dir}/jcalendar-1.4.jar"/>
-        <property name="substance.jar" location="${lib.dir}/substance-6.0.jar"/>
+        <property name="substance.jar" location="${lib.dir}/substance-7.2.1.jar"/>
         <property name="j2h.jar" location="${lib.dir}/j2h.jar"/>
 
         <property name="swixml-core" location="${build.dest}"/>
@@ -146,6 +146,7 @@
     <target name="prepare-samples" depends="prepare">
         <!-- create directories -->
         <mkdir dir="${samples.dest}"/>
+        <mkdir dir="${samples.dest}/html"/>
 
         <!-- copy src files -->
         <copy todir="${samples.dest}" filtering="yes">
@@ -235,11 +236,11 @@
             header="true"
             footer="true"
             destination="${samples.dest}/html">      
-            <fileset dir="${samples.dest}/src">
+            <fileset dir="${samples.dest}/">
                 <include name="**.java"/>
             </fileset>
 
-            <javadoc localRef="${java.docs}" httpRef="http://docs.oracle.com/javase/7/docs/api/"/>
+            <javadoc localRef="${java.docs}" httpRef="http://docs.oracle.com/javase/8/docs/api/"/>
             <javadoc localRef="./build/apidocs" httpRef="http://www.swixml.org/apidocs"/>
 
         </java2html>
@@ -308,7 +309,7 @@
 
             <classpath refid="run.class.path"/>
 
-            <link href="http://docs.oracle.com/javase/7/docs/api/"/>
+            <link href="http://docs.oracle.com/javase/8/docs/api/"/>
         </javadoc>
     </target>
 
